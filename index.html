@@ -8,6 +8,28 @@
     <title>Supers</title>
   </head>
   <body>
+    <input type="text" data-label="alias" placeholder="Alias" />
+    <input type="text" data-label="name" placeholder="Name" />
+    <input type="text" data-label="powers" placeholder="Powers" />
+    <label for="hero">Hero</label>
+    <input
+      type="radio"
+      name="heroStatus"
+      data-label="powers"
+      value="hero"
+      id="hero"
+      checked
+    />
+    <label for="villain">Villain</label>
+    <input
+      type="radio"
+      name="heroStatus"
+      data-label="powers"
+      value="villain"
+      id="villain"
+    />
+    <button>Add New Data</button>
+    <label data-label="validation"></label>
     <div id="app"></div>
     <template>
       <article>
@@ -15,6 +37,7 @@
         <h2></h2>
         <h3></h3>
         <p></p>
+        <button>Delete</button>
       </article>
     </template>
     <script src="index.js"></script>

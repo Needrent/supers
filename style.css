@@ -1,0 +1,16 @@
+article {
+  padding: 20px 0 30px 0;
+  animation: enter 0.5s forwards ease-out;
+  overflow: hidden;
+}
+article:nth-child(odd) {
+  background: pink;
+}
+@keyframes enter {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
