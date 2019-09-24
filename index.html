@@ -5,37 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>Supers</title>
+    <title>Supers Database</title>
   </head>
   <body>
-    <input type="text" data-label="alias" placeholder="Alias" />
-    <input type="text" data-label="name" placeholder="Name" />
-    <input type="text" data-label="powers" placeholder="Powers" />
-    <label for="hero">Hero</label>
-    <input
-      type="radio"
-      name="heroStatus"
-      data-label="powers"
-      value="hero"
-      id="hero"
-      checked
-    />
-    <label for="villain">Villain</label>
-    <input
-      type="radio"
-      name="heroStatus"
-      data-label="powers"
-      value="villain"
-      id="villain"
-    />
-    <button>Add New Data</button>
-    <label data-label="validation"></label>
-    <div id="app"></div>
+    <header>
+      <nav>
+        <h2>Add new entry</h2>
+        <label for="alias">Alias</label>
+        <input type="text" data-label="alias" placeholder="Alias" id="alias" />
+        <label for="name">Real name</label>
+        <input type="text" data-label="name" placeholder="Name" id="name" />
+        <label for="powers">Enter powers</label>
+        <textarea
+          data-label="powers"
+          placeholder="Add multiple powers with linebreak"
+          id="powers"
+        ></textarea>
+        <label for="hero">Hero</label>
+        <input
+          type="radio"
+          name="heroStatus"
+          data-label="heroStatus"
+          value="hero"
+          id="hero"
+          checked
+        />
+        <label for="villain">Villain</label>
+        <input
+          type="radio"
+          name="heroStatus"
+          data-label="heroStatus"
+          value="villain"
+          id="villain"
+        />
+        <button>Add New Data</button>
+      </nav>
+    </header>
+    <main id="app"></main>
     <template>
-      <article>
+      <article class="super">
         <h1></h1>
-        <h2></h2>
         <h3></h3>
+        <h2></h2>
         <p></p>
         <button>Delete</button>
       </article>
