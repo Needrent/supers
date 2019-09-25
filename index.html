@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>Supers Database</title>
+    <title>TSDb - The Supers Database</title>
   </head>
   <body>
     <header>
+      <section>
+        <h1>TSDb</h1>
+        <h2>The Supers Database</h2>
+      </section>
       <nav>
         <h2>Add new entry</h2>
         <label for="alias">Alias</label>
@@ -44,10 +48,13 @@
     <main id="app"></main>
     <template>
       <article class="super">
-        <h1></h1>
-        <h3></h3>
-        <h2></h2>
-        <p></p>
+        <h2 class="tempAlias"></h2>
+        <p class="tempName"></p>
+        <p class="tempStatus"></p>
+        <h2 class="knownPowers">Known Powers</h2>
+        <ul class="tempPowers">
+          <li>item</li>
+        </ul>
         <button>Delete</button>
       </article>
     </template>

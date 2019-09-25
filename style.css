@@ -8,11 +8,16 @@
   --ani-fadeOutTime: 0.5s;
 }
 /*-------------------------------------header and navigation*/
+header section {
+  text-align: center;
+}
 header {
   position: relative;
+  margin: 0 0 16px 0;
 }
 nav {
-  width: 25%;
+  width: 95%;
+  margin: auto;
 }
 /*--------------------------------- form*/
 label,
@@ -41,14 +46,33 @@ label[for="villain"] {
 /*--------------------------------Data content*/
 main {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  columns: 1;
   gap: 10px;
-  width: 70%;
+  width: 95%;
   margin: auto;
 }
 h2 {
-  font-size: 15px;
+  font-size: 20px;
+}
+ul {
+  --bullet-size: 25px;
+  list-style: none;
+}
+li {
+  height: calc(10px + var(--bullet-size));
+  position: relative;
+  padding: calc(var(--bullet-size) / 6) 0 0 calc(var(--bullet-size) + 5px);
+}
+li::before {
+  content: " ";
+  background: url(images/bullet.png) no-repeat;
+  background-size: var(--bullet-size) var(--bullet-size);
+  width: var(--bullet-size);
+  height: var(--bullet-size);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 article button {
   position: absolute;
@@ -69,6 +93,8 @@ article {
   animation: enter var(--ani-fadeOutTime) forwards ease-out;
   border: solid black 5px;
   background: url(images/paper_texture-002.jpg);
+  break-inside: avoid;
+  margin: 0 0 10px 0;
 }
 article:nth-child(odd) {
   background: url(images/paper_texture-001.jpg);
@@ -90,4 +116,111 @@ article.remove {
 .error {
   border-color: red;
   background: pink;
+}
+@media (min-width: 768px) {
+  /*-------------------------------------header and navigation*/
+  header {
+    position: relative;
+  }
+  nav {
+    width: 25%;
+  }
+  /*--------------------------------- form*/
+  label,
+  input,
+  button {
+    display: block;
+  }
+  label,
+  input,
+  textarea {
+    width: 100%;
+  }
+  textarea {
+    height: calc(16px * 5);
+    resize: none;
+  }
+  label {
+    margin: 6px 0 0 0;
+  }
+  input[type="radio"],
+  label[for="hero"],
+  label[for="villain"] {
+    display: inline-block;
+    width: auto;
+  }
+  /*--------------------------------Data content*/
+  main {
+    position: relative;
+    columns: 3;
+    gap: 10px;
+    width: 70%;
+    margin: auto;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  ul {
+    --bullet-size: 25px;
+    list-style: none;
+  }
+  li {
+    height: calc(10px + var(--bullet-size));
+    position: relative;
+    padding: calc(var(--bullet-size) / 6) 0 0 calc(var(--bullet-size) + 5px);
+  }
+  li::before {
+    content: " ";
+    background: url(images/bullet.png) no-repeat;
+    background-size: var(--bullet-size) var(--bullet-size);
+    width: var(--bullet-size);
+    height: var(--bullet-size);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+  article button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: black;
+    color: white;
+    border: none;
+    padding: 5px 10px 3px 10px;
+    transition: var(--ani-fadeOutTime);
+  }
+  article button:disabled {
+    color: black;
+  }
+  article {
+    position: relative;
+    padding: 10px 10px 40px 10px;
+    animation: enter var(--ani-fadeOutTime) forwards ease-out;
+    border: solid black 5px;
+    background: url(images/paper_texture-002.jpg);
+    break-inside: avoid;
+    margin: 0 0 10px 0;
+  }
+  article:nth-child(odd) {
+    background: url(images/paper_texture-001.jpg);
+  }
+  article.remove {
+    background: black;
+    transition: var(--ani-fadeOutTime);
+    color: white;
+  }
+  @keyframes enter {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  /*-------------------------------Error styles*/
+  .error {
+    border-color: red;
+    background: pink;
+  }
 }

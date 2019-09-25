@@ -23,28 +23,49 @@ function addHeroToTheDom(supers) {
   const template = document.querySelector("template").content;
   const copy = template.cloneNode(true);
 
-  const alias = copy.querySelector("h1");
-  const name = copy.querySelector("h2");
-  const powers = copy.querySelector("p");
-  const id = copy.querySelector("article.super");
-  const status = copy.querySelector("h3");
+  const aliasCon = copy.querySelector(".tempAlias");
+  const nameCon = copy.querySelector(".tempName");
+  const powersCon = copy.querySelector(".tempPowers");
+  const idCon = copy.querySelector("article.super");
+  const statusCon = copy.querySelector(".tempStatus");
 
-  alias.textContent = `Alias: ${supers.alias}`;
-  name.textContent = `(${supers.name})`;
-  powers.textContent = supers.powers;
-  id.dataset.supersid = supers._id;
+  //Remove placeholder item for the ul
+  powersCon.textContent = "";
+
+  //Make the new line string to an Array
+  const powerArr = supers.powers.split("\n");
+
+  // Clean up powers Array
+  let index = powerArr.indexOf("");
+
+  if (index > -1) {
+    powerArr.splice(index, 1);
+  }
+  if (powerArr.length == 0) {
+    powersCon.innerHTML = "<li>Powers unknown</li>";
+  }
+
+  // Add data to DOM
+  aliasCon.textContent = `Alias: ${supers.alias}`;
+  nameCon.textContent = `(${supers.name})`;
+  idCon.dataset.supersid = supers._id;
 
   if (supers.hero) {
-    status.textContent = "Hero";
+    statusCon.textContent = "Hero";
   } else {
-    status.textContent = "Villan";
+    statusCon.textContent = "Villan";
   }
   if (supers.name == "") {
-    name.textContent = `(Real name unknown)`;
+    nameCon.textContent = `(Real name unknown)`;
   }
-  if (supers.powers == "") {
-    powers.textContent = "Powers unknown";
-  }
+  powerArr.forEach(function(power) {
+    let newLi = document.createElement("li");
+
+    newLi.textContent = power;
+
+    powersCon.appendChild(newLi);
+  });
+
   copy.querySelector("button").addEventListener("click", () => {
     deleteHero(supers._id);
     const deletedElm = document.querySelector(
