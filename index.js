@@ -53,7 +53,7 @@ function addHeroToTheDom(supers) {
   if (supers.hero) {
     statusCon.textContent = "Hero";
   } else {
-    statusCon.textContent = "Villan";
+    statusCon.textContent = "Villian";
   }
   if (supers.name == "") {
     nameCon.textContent = `(Real name unknown)`;

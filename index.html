@@ -5,24 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>TSDb - The Supers Database</title>
+    <title>tSDb - The Supers Database</title>
   </head>
   <body>
     <header>
       <section>
-        <h1>TSDb</h1>
+        <h1>tSDb</h1>
         <h2>The Supers Database</h2>
       </section>
       <nav>
-        <h2>Add new entry</h2>
+        <h2>Report new super</h2>
         <label for="alias">Alias</label>
-        <input type="text" data-label="alias" placeholder="Alias" id="alias" />
+        <input
+          type="text"
+          data-label="alias"
+          placeholder='"Enter the alias of the super"'
+          id="firstname"
+        />
         <label for="name">Real name</label>
-        <input type="text" data-label="name" placeholder="Name" id="name" />
+        <input
+          type="text"
+          data-label="name"
+          placeholder='"Enter the real name of the super if known"'
+          id="fullname"
+        />
         <label for="powers">Enter powers</label>
         <textarea
           data-label="powers"
-          placeholder="Add multiple powers with linebreak"
+          placeholder='"Add known powers of the super. Add multiple powers with a new line"'
           id="powers"
         ></textarea>
         <label for="hero">Hero</label>
@@ -42,7 +52,7 @@
           value="villain"
           id="villain"
         />
-        <button>Add New Data</button>
+        <button>Enter data</button>
       </nav>
     </header>
     <main id="app"></main>

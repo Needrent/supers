@@ -11,6 +11,7 @@ button,
 textarea {
   margin: 0;
   border: 0;
+  border-radius: 0;
   padding: 0;
   display: inline-block;
   vertical-align: middle;
@@ -23,11 +24,12 @@ textarea {
 input:focus {
   outline: 0;
 }
+/*Changed this from content-box to border-box*/
 input,
 textarea {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 button,
 input[type="reset"],
@@ -67,22 +69,27 @@ input[type="submit"] {
 textarea {
   vertical-align: top;
   overflow: auto;
+  border-bottom: solid;
 }
 select[multiple] {
   vertical-align: top;
 }
+/*----global reset*/
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 /*-------------------------------------Variable*/
 :root {
   --ani-fadeOutTime: 0.5s;
+  --primary-color: darkcyan;
 }
 /*-------------------------------------header and navigation*/
 header section {
   text-align: center;
+  margin: 0 0 20px 0;
 }
 header {
   position: relative;
@@ -103,18 +110,67 @@ input,
 textarea {
   width: 100%;
 }
+input,
+textarea {
+  padding: 10px;
+}
 textarea {
   height: calc(16px * 5);
   resize: none;
 }
 label {
   margin: 6px 0 0 0;
+  font-weight: bold;
 }
 input[type="radio"],
 label[for="hero"],
 label[for="villain"] {
   display: inline-block;
   width: auto;
+  cursor: pointer;
+}
+input[type="radio"] {
+  --radio-outer: 20px;
+  position: relative;
+  visibility: hidden;
+  width: var(--radio-outer);
+  height: var(--radio-outer);
+  margin: 6px 15px 0 0;
+}
+input[type="radio"]::before,
+input[type="radio"]::after {
+  position: absolute;
+  content: " ";
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+input[type="radio"]::before {
+  --radio-inner: 10px;
+  z-index: 1;
+  width: var(--radio-inner);
+  height: var(--radio-inner);
+  visibility: initial;
+}
+input[type="radio"]:checked::before,
+input[type="radio"]:hover::before {
+  background: white;
+}
+input[type="radio"]::after {
+  width: var(--radio-outer);
+  height: var(--radio-outer);
+  visibility: initial;
+  background: var(--primary-color);
+}
+button {
+  padding: 10px;
+  background: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  margin: 10px 0 0 0;
 }
 /*--------------------------------Data content*/
 main {
@@ -132,9 +188,9 @@ ul {
   list-style: none;
 }
 li {
-  height: calc(10px + var(--bullet-size));
+  margin: 0 0 10px 0;
   position: relative;
-  padding: calc(var(--bullet-size) / 6) 0 0 calc(var(--bullet-size) + 5px);
+  padding: calc(var(--bullet-size) / 5) 0 0 calc(var(--bullet-size) + 5px);
 }
 li::before {
   content: " ";
@@ -192,8 +248,9 @@ article.remove {
   background: pink;
 }
 @media (min-width: 768px) {
-  /*-------------------------------------header and navigation*/
-  /*--------------------------------- form*/
+  nav {
+    width: 45%;
+  }
   /*--------------------------------Data content*/
   main {
     position: relative;
